@@ -22,7 +22,7 @@ import { I18nService } from '@zeta/i18n';
 import { RouteComponent } from '@zeta/nav';
 import { XcDialogService, XcNavListItem, XcNavListOrientation } from '@zeta/xc';
 
-import { Subscription } from 'rxjs/';
+import { Subscription } from 'rxjs';
 
 import { xtf_error_code_translations_de_DE } from './locale/xtf-error-code-translations.de-DE';
 import { xtf_error_code_translations_en_US } from './locale/xtf-error-code-translations.en-US';
