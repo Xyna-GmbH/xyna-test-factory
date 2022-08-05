@@ -21,7 +21,7 @@ import { ApiService } from '@zeta/api';
 import { I18nService } from '@zeta/i18n';
 import { XcAutocompleteDataWrapper, XcDialogComponent, XcOptionItem, XcOptionItemString } from '@zeta/xc';
 
-import { Subject } from 'rxjs/';
+import { Subject } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 
 import { extractError, OPTIONS_WITH_ERROR } from '../../../const';

@@ -23,7 +23,7 @@ import { I18nService } from '@zeta/i18n';
 import { RouteComponent } from '@zeta/nav';
 import { XcAutocompleteDataWrapper, XcDialogService, XcFormDirective, XDSIconName } from '@zeta/xc';
 
-import { Observable, Subject, Subscription } from 'rxjs/';
+import { Observable, Subject, Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 import { extractError, OPTIONS_WITH_ERROR } from '../const';

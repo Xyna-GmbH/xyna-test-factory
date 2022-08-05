@@ -20,7 +20,7 @@ import { Injectable } from '@angular/core';
 import { ApiService, RuntimeContext, StartOrderOptions, StartOrderResult, Xo, XoClassInterface, XoObject, XoObjectClass, XoProperty, XoUnique } from '@zeta/api';
 import { XcDialogService } from '@zeta/xc';
 
-import { Observable, Subject } from 'rxjs/';
+import { Observable, Subject } from 'rxjs';
 
 
 const CROSS_ORIGIN = false;

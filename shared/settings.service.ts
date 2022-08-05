@@ -21,7 +21,7 @@ import { Injectable } from '@angular/core';
 import { ApiService, RuntimeContext, StartOrderResult } from '@zeta/api';
 import { AuthService } from '@zeta/auth';
 
-import { BehaviorSubject, Observable } from 'rxjs/';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { XoTestProjectSelector, XoTestProjectSelectorArray } from '../usermenu/xo/test-project-selector';
