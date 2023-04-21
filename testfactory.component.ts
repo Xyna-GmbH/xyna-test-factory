@@ -18,7 +18,7 @@
 import { Component } from '@angular/core';
 
 import { ApiService, RuntimeContext } from '@zeta/api';
-import { I18nService } from '@zeta/i18n';
+import { I18nService, LocaleService } from '@zeta/i18n';
 import { RouteComponent } from '@zeta/nav';
 import { XcDialogService, XcNavListItem, XcNavListOrientation } from '@zeta/xc';
 
@@ -53,11 +53,11 @@ export class TestfactoryComponent extends RouteComponent {
         super();
 
         switch (this.i18n.language) {
-            case I18nService.DE_DE:
+            case LocaleService.DE_DE:
                 this.i18n.setTranslations(this.i18n.language, xtf_translations_de_DE);
                 this.i18n.setTranslations(this.i18n.language, xtf_error_code_translations_de_DE);
                 break;
-            case I18nService.EN_US:
+            case LocaleService.EN_US:
                 this.i18n.setTranslations(this.i18n.language, xtf_translations_en_US);
                 this.i18n.setTranslations(this.i18n.language, xtf_error_code_translations_en_US);
                 break;
