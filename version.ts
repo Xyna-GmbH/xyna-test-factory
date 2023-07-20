@@ -16,4 +16,4 @@
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  */
 export const TestFactoryName = 'Test Factory';
-export const TestFactoryVersion = '[WIP]';
+export const TestFactoryVersion = '2.0.1';
