@@ -38,7 +38,7 @@ export class ImportResult {
     constructor(
         public status: ImportStatus,
         public fileId: XoManagedFileID = null,
-        public fileName: string = ''
+        public fileName = ''
     ) {}
 }
 
