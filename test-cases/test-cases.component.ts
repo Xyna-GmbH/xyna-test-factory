@@ -92,7 +92,7 @@ export class TestCasesComponent extends RouteComponent {
 
 
     constructor(
-        private settingsService: SettingsService,
+        private readonly settingsService: SettingsService,
         private readonly router: Router,
         private readonly apiService: ApiService,
         private readonly dialogService: XcDialogService,

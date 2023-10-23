@@ -45,8 +45,8 @@ export class TestfactoryComponent extends RouteComponent {
 
 
     constructor(
-        private settingsService: SettingsService,
-        private apiService: ApiService,
+        private readonly settingsService: SettingsService,
+        private readonly apiService: ApiService,
         private readonly i18n: I18nService,
         private readonly dialogService: XcDialogService
     ) {
