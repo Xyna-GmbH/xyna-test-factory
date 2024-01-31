@@ -16,8 +16,10 @@
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  */
 import { Injectable } from '@angular/core';
+import { environment } from '@environments/environment';
 
 import { ApiService, RuntimeContext, StartOrderOptions, StartOrderResult, Xo, XoClassInterface, XoObject, XoObjectClass, XoProperty, XoUnique } from '@zeta/api';
+import { getSubdirectory } from '@zeta/base';
 import { XcDialogService } from '@zeta/xc';
 
 import { Observable, Subject } from 'rxjs';
@@ -25,8 +27,8 @@ import { Observable, Subject } from 'rxjs';
 
 const CROSS_ORIGIN = false;
 const CROSS_HOST = 'localhost';
-const UPLOAD_URL_PATH = '/XynaBlackEditionWebServices/io/upload';
-const DOWNLOAD_URL_PATH = '/XynaBlackEditionWebServices/io/download?p0=';
+const UPLOAD_URL_PATH = 'upload';
+const DOWNLOAD_URL_PATH = 'download?p0=';
 
 export enum ImportStatus {
     ChoseFile = 'choseFile',
@@ -165,10 +167,11 @@ export class ImexService {
 
                 // as long as the project runs locally, we need to hardcode the host name
                 // we can not use relative urls
+                const subdirectory = getSubdirectory(environment.zeta.url);
                 if (CROSS_ORIGIN) {
-                    xhr.open('POST', CROSS_HOST + UPLOAD_URL_PATH);
+                    xhr.open('POST', CROSS_HOST + '/' + subdirectory + UPLOAD_URL_PATH);
                 } else {
-                    xhr.open('POST', UPLOAD_URL_PATH);
+                    xhr.open('POST', '/' + subdirectory + UPLOAD_URL_PATH);
                 }
                 xhr.send(fd); // starts the "upload"
             }
@@ -224,11 +227,11 @@ export class ImexService {
                 const managedFileId = sorOutput ? sorOutput.data.iD : null;
 
                 if (managedFileId !== null) {
-
+                    const subdirectory = getSubdirectory(environment.zeta.url);
                     if (CROSS_ORIGIN) {
-                        window.location.href = CROSS_HOST + DOWNLOAD_URL_PATH + managedFileId;
+                        window.location.href = CROSS_HOST + '/' + subdirectory + DOWNLOAD_URL_PATH + managedFileId;
                     } else {
-                        window.location.href = DOWNLOAD_URL_PATH + managedFileId;
+                        window.location.href = '/' + subdirectory + DOWNLOAD_URL_PATH + managedFileId;
                     }
 
                     subj.next(startOrderResult);
