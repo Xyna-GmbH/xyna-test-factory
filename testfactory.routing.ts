@@ -18,7 +18,7 @@
 import { RouterModule } from '@angular/router';
 
 import { RedirectComponent, RedirectGuardCanActivate, RedirectGuardCanDeactivate, RedirectGuardConfigProvider, RedirectGuardProvider, XynaRoutes } from '@zeta/nav';
-import { RightGuard } from '@zeta/nav/right.guard';
+import { RightGuardCanActivate } from '@zeta/nav/right.guard';
 
 import { RIGHT_TEST_FACTORY } from './const';
 import { CountersComponent } from './counters/counters.component';
@@ -48,7 +48,7 @@ export const TestfactoryRoutes: XynaRoutes = [
     {
         path: root,
         component: TestfactoryComponent,
-        canActivate: [RightGuard],
+        canActivate: [RightGuardCanActivate],
         data: { right: RIGHT_TEST_FACTORY, reuse: root },
         children: [
             {
