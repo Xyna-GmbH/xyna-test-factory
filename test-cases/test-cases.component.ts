@@ -153,13 +153,10 @@ export class TestCasesComponent extends RouteComponent {
 
     onShow() {
         // preselection
-        const selectionId: string = this.activatedRoute.snapshot.params.id;
+        const selectionId: string = this.activatedRoute.snapshot.params.id || this.testCase?.iD;
         if (selectionId) {
             const entry = new XoTestCaseEntry(undefined, Number(selectionId));
             this.dsTestCases.restoreSelectionKeys([entry.uniqueKey], this.settingsService.needRefreshTestCases);
-        }
-        if (this.testCase) {
-            this.navigateToId();
         }
         if (this.settingsService.needRefreshTestCases) {
             this.settingsService.needRefreshTestCases = false;
@@ -185,6 +182,7 @@ export class TestCasesComponent extends RouteComponent {
                     this.apiService.startOrder(this.settingsService.testProjectRtc, testCaseDetailsOrderType, this.testCaseEntry, XoTestCase, OPTIONS_WITH_ERROR).subscribe(result => {
                         if (!result.errorMessage) {
                             this.testCase = result.output[0] as XoTestCase;
+                            this.navigateToId();
                         } else {
                             this.dialogService.error(this.i18nService.translateErrorCode(result.errorMessage));
                         }
@@ -203,13 +201,14 @@ export class TestCasesComponent extends RouteComponent {
                     this.dsTestDataSelectors.refresh();
                 } else {
                     this.testCase = null;
+                    this.navigateToId();
                 }
                 this.testCaseOrderId = '';
-                this.navigateToId();
             }
         } else {
             this.testCaseEntry = null;
             this.testCase = null;
+            this.navigateToId();
         }
     }
 
