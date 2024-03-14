@@ -20,7 +20,7 @@
     max-width: 80vh;
 
     ::ng-deep {
-        mat-dialog-content.mat-dialog-content {
+        .dialog .mat-mdc-dialog-content {
             display: flex;
             flex: 1 1 auto;
             flex-direction: column;
