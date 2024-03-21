@@ -135,14 +135,11 @@ export class TestCaseChainsComponent extends RouteComponent {
 
     onShow() {
         // preselection
-        const selectionId: string = this.activatedRoute.snapshot.params.id;
+        const selectionId: string = this.activatedRoute.snapshot.params.id || this.testCaseChain?.id;
         if (selectionId) {
             const entry = new XoTestCaseChainEntry();
             entry.id = parseInt(selectionId, 10);
             this.dsTestCaseChains.restoreSelectionKeys([entry.uniqueKey], this.settingsService.needRefreshTestCaseChains);
-        }
-        if (this.testCaseChain) {
-            this.navigateToId();
         }
         if (this.settingsService.needRefreshTestCaseChains) {
             this.settingsService.needRefreshTestCaseChains = false;
